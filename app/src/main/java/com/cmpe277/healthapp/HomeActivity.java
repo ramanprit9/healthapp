@@ -100,6 +100,8 @@ public class HomeActivity extends Activity {
 
         calculateHealthRisksFromLambda(myInterface);
 
+         //Testing commit
+         //directly call showHealthRisks (like below) to avoid invoking Lambda
         //showHealthRisks (80, 50, 70);
     }
 
