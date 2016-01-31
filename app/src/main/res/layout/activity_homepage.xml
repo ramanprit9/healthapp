@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rel1"
+    android:baselineAligned="false"
+    android:orientation="vertical"
+    android:background="#b3e5fc">
+    <ImageView
+        android:id="@+id/pattientinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:adjustViewBounds="true"
+
+        android:src="@drawable/newpatient"
+
+        android:contentDescription="Patient Info"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="48dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:onClick="startPatientScreen"/>
+
+    <ImageView
+        android:id="@+id/vitalstat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:adjustViewBounds="true"
+
+        android:src="@drawable/vitalstat"
+
+        android:contentDescription="Vital stats"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignTop="@+id/pattientinfo"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="50dp"
+        android:layout_marginEnd="50dp"
+        android:onClick="showPatientVitals"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/taketest"
+        android:src="@drawable/newtest"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/pattientinfo"
+        android:layout_alignStart="@+id/pattientinfo"
+        android:onClick="startTestScreen"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/caliberDevice"
+        android:src="@drawable/caliberateicon"
+        android:layout_alignTop="@+id/taketest"
+        android:layout_alignLeft="@+id/vitalstat"
+        android:layout_alignStart="@+id/vitalstat"
+        android:layout_alignBottom="@+id/taketest"
+        android:layout_alignRight="@+id/vitalstat"
+        android:layout_alignEnd="@+id/vitalstat"
+        android:onClick="calculateHealthRisks"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/instructions"
+        android:src="@drawable/instr"
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/taketest"
+        android:layout_alignStart="@+id/taketest" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/logout"
+        android:src="@drawable/logout"
+        android:layout_alignBottom="@+id/instructions"
+        android:layout_alignTop="@+id/instructions"
+        android:layout_alignLeft="@+id/caliberDevice"
+        android:layout_alignStart="@+id/caliberDevice"
+        android:layout_alignRight="@+id/caliberDevice"
+        android:layout_alignEnd="@+id/caliberDevice" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Patient Info"
+        android:id="@+id/textView"
+        android:clickable="true"
+        android:editable="false"
+        android:layout_below="@+id/pattientinfo"
+        android:layout_alignRight="@+id/pattientinfo"
+        android:layout_alignEnd="@+id/pattientinfo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Vital Stats"
+        android:id="@+id/textView2"
+        android:layout_alignTop="@+id/textView"
+        android:layout_alignLeft="@+id/vitalstat"
+        android:layout_alignStart="@+id/vitalstat"
+        android:layout_alignRight="@+id/vitalstat"
+        android:layout_alignEnd="@+id/vitalstat" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="New Test"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/taketest"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Health Calculator"
+        android:id="@+id/textView4"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_alignLeft="@+id/caliberDevice"
+        android:layout_alignStart="@+id/caliberDevice" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Instructions"
+        android:id="@+id/textView5"
+        android:layout_below="@+id/logout"
+        android:layout_alignRight="@+id/instructions"
+        android:layout_alignEnd="@+id/instructions" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Log Out"
+        android:id="@+id/textView6"
+        android:layout_below="@+id/logout"
+        android:layout_alignRight="@+id/textView4"
+        android:layout_alignEnd="@+id/textView4"
+        android:layout_alignBottom="@+id/textView5"
+        android:layout_alignLeft="@+id/logout"
+        android:layout_alignStart="@+id/logout" />
+
+</RelativeLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#b3e5fc">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:text="Choose Test:"
+        android:textColor="@color/black"
+        android:textSize="20dp"/>
+
+    <Spinner
+        android:id="@+id/spinnerResults"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dropDownWidth="fill_parent"
+        android:background="@android:drawable/btn_dropdown"
+        android:textSize="20dp">
+    </Spinner>
+
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="       Date            mg/dL"
+        android:textColor="@color/dark_blue"
+        android:textSize="20dp"/>
+
+    <ListView
+        android:id="@+id/listViewPastResults"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:fadeScrollbars="false"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:background="@color/material_blue_grey_800" />
+
+</LinearLayout>
+

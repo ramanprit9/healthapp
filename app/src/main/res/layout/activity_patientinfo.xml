@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#b3e5fc">
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="397dp"
+    android:shrinkColumns="*"
+    android:stretchColumns="*"
+    android:id="@+id/tab1">
+
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_span="6"
+            android:gravity="center"
+            android:text="@string/txt_patientinfo"
+            android:textSize="18dp"
+            android:textStyle="bold|italic"
+            android:textColor="@color/black"
+            >
+        </TextView>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="@string/txt_patientname"
+            android:textSize="18dp"
+            android:layout_column="1"></TextView>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/editTextname"
+            android:layout_column="3" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="@string/txt_patientid"
+            android:textSize="18dp"
+            android:layout_column="1"></TextView>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/editTextid"
+            android:layout_column="3" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="@string/txt_patientage"
+            android:textSize="18dp"
+            android:layout_column="1"></TextView>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+
+            android:ems="10"
+            android:id="@+id/editTextage"
+            android:layout_column="3" />
+
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="@string/txt_patientgender"
+            android:textSize="18dp"
+            android:layout_column="1"></TextView>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+
+            android:ems="10"
+            android:id="@+id/editTextGender"
+            android:layout_column="3" />
+
+    </TableRow>
+        <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="@string/txt_patientweight"
+            android:textSize="18dp"
+            android:layout_column="1"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+
+            android:ems="10"
+            android:id="@+id/editTextWeight"
+            android:layout_column="3" />
+
+    </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="@string/txt_patientsmoker"
+                android:textSize="18dp"
+                android:layout_column="1"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+
+                android:ems="10"
+                android:id="@+id/editTextSmoker"
+                android:layout_column="3" />
+
+        </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="@string/txt_patientfamilyhistory"
+            android:textSize="18dp"
+            android:layout_column="1"/>
+
+
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="@string/txt_patientheartdisease"
+            android:textSize="18dp"
+            android:layout_column="1"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+
+            android:ems="10"
+            android:id="@+id/editTextfamilyhistory"
+            android:layout_column="3" />
+
+    </TableRow>
+
+
+</TableLayout>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="15dp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shapes"
+        android:textAllCaps="false"
+        android:id="@+id/button"
+        android:text="@string/btn_save_label"
+        android:layout_below="@+id/tab1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_marginTop="25dp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_cancel_label"
+        android:id="@+id/button2"
+        android:textAllCaps="false"
+        android:layout_below="@+id/tab1"
+        android:background="@drawable/shapes"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

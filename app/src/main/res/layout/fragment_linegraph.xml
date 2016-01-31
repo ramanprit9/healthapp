@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#b3e5fc"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:text="Choose Test:"
+        android:textColor="@color/black"
+        android:textSize="20dp"/>
+
+    <Spinner
+        android:id="@+id/spinnerResults"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dropDownWidth="fill_parent"
+        android:background="@android:drawable/btn_dropdown">
+    </Spinner>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:gravity="center"
+        android:text="Cholesterol Results (in mg/dL)"
+        android:textColor="@color/dark_blue"
+        android:textSize="20dp"/>
+
+    <com.echo.holographlibrary.LineGraph
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/linegraph"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:gravity="center"
+        android:text="2015-05 to 2015-09"
+        android:textColor="@color/dark_blue"
+        android:textSize="20dp"/>
+	
+</LinearLayout>

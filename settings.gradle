@@ -1,0 +1,2 @@
+include ':app', ':HoloGraphLibrary'
+include ':gaugeviewlibrary'

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rel1"
+    android:background="#b3e5fc">
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_test_cholestrol"
+        android:id="@+id/btn_test_cholestrol"
+        android:background="@drawable/testscreenbutton"
+        android:layout_above="@+id/btn_test_TSH"
+        android:layout_centerHorizontal="true"
+        android:textAllCaps="false"
+        android:textSize="15dp"
+        android:textColor="@color/black"
+        android:onClick="StartCameraScreen"
+        />
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_test_TSH"
+        android:id="@+id/btn_test_TSH"
+        android:background="@drawable/testscreenbutton"
+        android:layout_above="@+id/btn_glucose"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textSize="15dp"
+        android:textColor="@color/black"
+        />
+
+    <Button
+        android:background="@drawable/testscreenbutton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_glucose"
+        android:id="@+id/btn_glucose"
+        android:layout_above="@+id/btn_uti"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textSize="15dp"
+        android:textColor="@color/black"
+        android:textAllCaps="false"
+
+        />
+
+    <Button
+        android:background="@drawable/testscreenbutton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_uti"
+        android:id="@+id/btn_uti"
+        android:layout_above="@+id/btn_hiv"
+        android:layout_alignLeft="@+id/btn_hiv"
+        android:layout_alignStart="@+id/btn_hiv"
+        android:layout_marginTop="30dp"
+        android:textSize="15dp"
+        android:textColor="@color/black"
+        android:textAllCaps="false"
+
+        />
+
+    <Button
+        android:background="@drawable/testscreenbutton"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_hiv"
+        android:id="@+id/btn_hiv"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="30dp"
+        android:textSize="15dp"
+        android:textColor="@color/black"
+        />
+
+    <TextView
+        android:layout_marginTop="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/lbl_test"
+        android:id="@+id/lbl_test"
+        android:textSize="30dp"
+        android:textColor="@color/black"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
