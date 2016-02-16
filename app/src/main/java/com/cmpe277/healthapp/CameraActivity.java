@@ -211,7 +211,7 @@ public class CameraActivity extends AppCompatActivity {
         calculateAverageRGB(image, selectedAreaX1, selectedAreaY1, width, height);
     }
 
-    /* Calculate the RGB values
+    /* Calculate the average RGB of the selected area
      * @image - Bitmap image whose RGB value to be retrieve
      * int cornerX - x value of the area where to start getting the RGB value
      * int cornerY - y value of the area where to start getting the RGB value
@@ -256,7 +256,11 @@ public class CameraActivity extends AppCompatActivity {
         calculateCholesterol(avgR, avgG, avgB);
     }
 
-
+    /*
+     * Calculate the cholesterol based on the given R, G, and B value
+     * For now, the equation being used is fixed....
+     * Once calibration is implemented, get the equation calculated
+     */
     public void calculateCholesterol(int R, int G, int B)
     {
         //x-axis - concentration/cholesterol
@@ -272,7 +276,7 @@ public class CameraActivity extends AppCompatActivity {
         String patient_id = getPatientID();
         if (patient_id == null) { Log.d("###############", "patient_id is null ");}
 
-        //commenting out below part so it doesn't gets saved in AWS. Correct AWS ID and Secret Key are not being used
+        //Commenting out below part so we don't have to pay for the AWS
         //AWS_SimpleDB.addPatientInformation(patient_id, (int)Math.round(cholesterol));
 
         Intent intent = new Intent(this, FinalResultActivity.class);

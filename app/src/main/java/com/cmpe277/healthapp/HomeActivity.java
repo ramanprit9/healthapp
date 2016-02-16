@@ -23,6 +23,7 @@ import com.cmpe277.healthapp.visualization.SpeedometerActivity;
 /**
  * Created by Ramanprit Kaur on 10/4/2015.
  */
+//Screen with the all the options (New Test, Past Results, etc....)
 public class HomeActivity extends Activity {
 
     public static final int HEART_INDEX = 0;
@@ -79,6 +80,7 @@ public class HomeActivity extends Activity {
 
     /*
      * Get the AWS credentials and then call the
+     * Invoke Lambda to calculate the risk
      * Call the HealthRiskCalculator to get the health risks
      */
     public void calculateHealthRisks(View view) {
