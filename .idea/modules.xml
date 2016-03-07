@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/HealthApp.iml" filepath="$PROJECT_DIR$/HealthApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/HoloGraphLibrary/HoloGraphLibrary.iml" filepath="$PROJECT_DIR$/HoloGraphLibrary/HoloGraphLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/gaugeviewlibrary/gaugeviewlibrary.iml" filepath="$PROJECT_DIR$/gaugeviewlibrary/gaugeviewlibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/healthapp.iml" filepath="$PROJECT_DIR$/healthapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/healthapp.iml" filepath="$PROJECT_DIR$/healthapp.iml" />
     </modules>
   </component>
 </project>
-
