@@ -9,12 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 
 import com.cmpe277.healthapp.datastorage.AWS_SimpleDB;
-import com.jjoe64.graphview.GraphView;
-import com.jjoe64.graphview.series.DataPoint;
-import com.jjoe64.graphview.series.LineGraphSeries;
 
 // Login screen
 public class MainActivity extends Activity {
@@ -42,6 +38,7 @@ public class MainActivity extends Activity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -59,11 +56,6 @@ public class MainActivity extends Activity {
 
     public void startHomeScreen(View view)
     {
-
-        /*Intent intent = new Intent(this, VeenaGraphActivity.class);
-        startActivity(intent);
-        */
-        /*********/
         System.out.println("********************* Going to HomeActivity");
         EditText username = (EditText) findViewById(R.id.edit_txt_username);
         String patient_id = username.getText().toString();
@@ -74,6 +66,5 @@ public class MainActivity extends Activity {
 
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
-
     }
 }
