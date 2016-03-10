@@ -32,6 +32,5 @@ dependencies {
     compile 'com.amazonaws:aws-android-sdk-lambda:2.2.+'
     compile project(':gaugeviewlibrary')
     compile project(':HoloGraphLibrary')
-    compile 'com.jjoe64:graphview:4.0.1'
 }
 

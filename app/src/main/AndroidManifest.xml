@@ -31,7 +31,6 @@
         <activity android:name=".FinalResultActivity"/>
         <activity android:name=".visualization.SpeedometerActivity"/>
         <activity android:name=".visualization.PastTestResults"/>
-        <activity android:name=".VeenaGraphActivity"/>
     </application>
 
 </manifest>
