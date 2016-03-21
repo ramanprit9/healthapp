@@ -62,19 +62,30 @@ public class HomeActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    /* Open the Patient Vitals screen */
     public void showPatientVitals (View view)
     {
         Intent intent = new Intent(this, PastTestResults.class);
         startActivity(intent);
     }
 
+    /* Open the New Test screen*/
     public void startTestScreen(View v) {
         Intent intent = new Intent(this, TestoptionsActivity.class);
         startActivity(intent);
     }
 
+    /* Open the Patient Info screen */
     public void startPatientScreen(View v) {
         Intent intent = new Intent(this, PatientActivity.class);
+        startActivity(intent);
+    }
+
+    /* Open up the screen for calibration
+     * This is where the user will start taking sample pictures.
+     */
+    public void startCalibrationScreen(View v) {
+        Intent intent = new Intent(this, CalibCameraActivity.class);
         startActivity(intent);
     }
 

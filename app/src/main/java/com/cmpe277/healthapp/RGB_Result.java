@@ -8,13 +8,13 @@ import java.util.ArrayList;
  * Created by Ramanprit Kaur on 1/31/2016.
  */
 public class RGB_Result {
-    public int R;
-    public int G;
-    public int B;
-    public double result;
+    public int R = 0;
+    public int G = 0;
+    public int B = 0;
+    public double result = 0;
     //public Date date;
 
-    public RGB_Result(int red, int green, int blue, int res) {
+    public RGB_Result(int red, int green, int blue, double res) {
         R = red;
         G = green;
         B = blue;

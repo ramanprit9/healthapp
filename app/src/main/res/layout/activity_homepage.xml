@@ -86,7 +86,8 @@
         android:layout_alignLeft="@+id/caliberDevice"
         android:layout_alignStart="@+id/caliberDevice"
         android:layout_alignRight="@+id/caliberDevice"
-        android:layout_alignEnd="@+id/caliberDevice" />
+        android:layout_alignEnd="@+id/caliberDevice"
+        android:onClick="startCalibrationScreen"/>
 
     <TextView
         android:layout_width="wrap_content"

@@ -22,11 +22,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".HomeActivity"/>
         <activity android:name=".TestoptionsActivity" />
         <activity android:name=".CameraActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"/>
+        <activity android:name=".CalibCameraActivity" />
         <activity android:name=".PatientActivity" />
         <activity android:name=".FinalResultActivity"/>
         <activity android:name=".visualization.SpeedometerActivity"/>
