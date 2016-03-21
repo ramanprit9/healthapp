@@ -12,7 +12,7 @@ import android.widget.EditText;
 
 import com.cmpe277.healthapp.datastorage.AWS_SimpleDB;
 
-//Login screen
+// Login screen
 public class MainActivity extends Activity {
 
     @Override
