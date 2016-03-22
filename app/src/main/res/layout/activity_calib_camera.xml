@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/rootLayout">
+
+
+    <ImageView
+        android:id="@+id/imgView"
+        android:background="@drawable/big_camera_icon"
+        android:layout_width="350dp"
+        android:layout_height="400dp"
+        android:layout_centerInParent="true"/>
+
+    <com.cmpe277.healthapp.DragRectView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/dragRect"
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:id="@+id/layoutCholestrol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|center_horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cholesterol Value:"
+            android:textSize="@dimen/abc_text_size_large_material"/>
+        <EditText
+            android:id="@+id/eTxtCholestrol"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/abc_text_size_large_material"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="uG"
+            android:textSize="@dimen/abc_text_size_large_material"/>
+
+    </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_alignTop="@+id/layoutCalib"
+            android:text="R-G-B: "
+            android:id="@+id/txtRGB" />
+
+        <LinearLayout
+            android:id="@+id/layoutCalib"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                android:id="@+id/btnSampleImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Take Image"
+                android:layout_gravity="center"
+                android:onClick="takePicture"/>
+
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Next"
+                android:layout_gravity="center"
+                android:onClick="nextImage"/>
+
+            <Button
+                android:id="@+id/btnCalibCalculate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Calc."
+                android:layout_gravity="center"
+                android:onClick="calculateValue"/>
+
+            <Button
+                android:id="@+id/btnFinish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Finish"
+                android:layout_gravity="center"
+                android:onClick="generateEquation"/>
+        </LinearLayout>
+
+</RelativeLayout>
