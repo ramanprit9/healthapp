@@ -5,24 +5,24 @@ package com.cmpe277.healthapp;
  */
 public class PatientInfo {
 
-    private static PatientInfo _patientIfno;
+    private static PatientInfo _patientInfo;
 
     private static String patient_id;
 
     public static PatientInfo getPatientInfo()
     {
-        if (_patientIfno == null) {
-            _patientIfno = new PatientInfo();
+        if (_patientInfo == null) {
+            _patientInfo = new PatientInfo();
         }
-        return _patientIfno;
+        return _patientInfo;
     }
 
     public String getPatient_id() {
-        return _patientIfno.getPatient_id();
+        return _patientInfo.getPatient_id();
     }
 
     public void setPatient_id(String patient_id) {
-        _patientIfno.setPatient_id(patient_id);
+        _patientInfo.setPatient_id(patient_id);
     }
 
 }
