@@ -34,6 +34,12 @@ public class PatientActivity extends AppCompatActivity {
         editWeight = (EditText) findViewById(R.id.eTxtPatientWeight);
         editSmoker = (EditText) findViewById(R.id.eTxtPatientSmoker);
         editHeartDisease = (EditText) findViewById(R.id.eTxtPatientHeartDisease);
+
+        /*
+         * populate the fields on the PatientInfo activity
+         * The Patient Info data has already been fetched from SimpleDB in HomeActivity onCreate
+         */
+        populatePatientInfo();
     }
 
     @Override
@@ -64,5 +70,27 @@ public class PatientActivity extends AppCompatActivity {
                 editAge.getText().toString(), editGender.getText().toString(),
                 editWeight.getText().toString(), editSmoker.getText().toString(),
                 editHeartDisease.getText().toString());
+
+        //Populate the Patient Info field with latest changes
+        AWS_SimpleDB.fetchPatientInformation(PatientInfo.getPatientInfo().getPatient_id());
     }
+
+    public void populatePatientInfo()
+    {
+        PatientInfo patient = PatientInfo.get_patientInfo();
+        editName.setText(patient.getName());
+        editID.setText(patient.getPatient_id());
+        editAge.setText(patient.getAge());
+        editGender.setText(patient.getGender());
+        editWeight.setText(patient.getWeight());
+        editSmoker.setText(patient.getSmoker());
+        editHeartDisease.setText(patient.getHeart_disease());
+    }
+
+    /*
+    public void cancelPatientInfo(View view)
+    {
+        AWS_SimpleDB.fetchPatientInformation(PatientInfo.getPatientInfo().getPatient_id());
+    }
+    */
 }

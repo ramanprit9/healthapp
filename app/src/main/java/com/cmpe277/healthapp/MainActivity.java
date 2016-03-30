@@ -9,7 +9,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.cmpe277.healthapp.datastorage.AWS_S3;
 import com.cmpe277.healthapp.datastorage.AWS_SimpleDB;
 
 // Login screen
@@ -28,7 +30,7 @@ public class MainActivity extends Activity {
         AWS_SimpleDB.setupClient();
 
         //set up AWS S3
-        //AWS_S3.setup();
+        AWS_S3.setup();
     }
 
 
@@ -58,13 +60,23 @@ public class MainActivity extends Activity {
     {
         System.out.println("********************* Going to HomeActivity");
         EditText username = (EditText) findViewById(R.id.edit_txt_username);
-        String patient_id = username.getText().toString();
-        //if (patient_id == null) {System.out.println("*****############### patient_id is null");}
+        EditText password = (EditText) findViewById(R.id.edit_txt_pwd);
+        String patientIDStr = username.getText().toString();
+        String passwordStr = password.getText().toString();
 
+        //if (patient_id == null) {System.out.println("*****############### patient_id is null");}
         //Log.d("#################", "setting patient_id before starting HomeScreen");
         //PatientInfo.getPatientInfo().setPatient_id(patient_id);
+        if (!patientIDStr.equals(PatientInfo.getPatientInfo().getPatient_id()) ||
+                !passwordStr.equals(PatientInfo.getPatientInfo().getPassword())) {
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    "Username or password is incorrect.", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
 
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
     }
+
 }

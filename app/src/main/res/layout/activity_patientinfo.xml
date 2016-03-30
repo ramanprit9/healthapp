@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/editTextname"
+            android:id="@+id/eTxtPatientName"
             android:layout_column="3" />
 
     </TableRow>
@@ -75,7 +75,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/editTextid"
+            android:id="@+id/eTxtPatientID"
             android:layout_column="3" />
 
     </TableRow>
@@ -99,7 +99,7 @@
             android:inputType="textPersonName"
 
             android:ems="10"
-            android:id="@+id/editTextage"
+            android:id="@+id/eTxtPatientAge"
             android:layout_column="3" />
 
     </TableRow>
@@ -122,7 +122,7 @@
             android:inputType="textPersonName"
 
             android:ems="10"
-            android:id="@+id/editTextGender"
+            android:id="@+id/eTxtPatientGender"
             android:layout_column="3" />
 
     </TableRow>
@@ -145,7 +145,7 @@
             android:inputType="textPersonName"
 
             android:ems="10"
-            android:id="@+id/editTextWeight"
+            android:id="@+id/eTxtPatientWeight"
             android:layout_column="3" />
 
     </TableRow>
@@ -168,7 +168,7 @@
                 android:inputType="textPersonName"
 
                 android:ems="10"
-                android:id="@+id/editTextSmoker"
+                android:id="@+id/eTxtPatientSmoker"
                 android:layout_column="3" />
 
         </TableRow>
@@ -204,9 +204,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-
             android:ems="10"
-            android:id="@+id/editTextfamilyhistory"
+            android:id="@+id/eTxtPatientHeartDisease"
             android:layout_column="3" />
 
     </TableRow>
@@ -226,7 +225,8 @@
         android:text="@string/btn_save_label"
         android:layout_below="@+id/tab1"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="updatePatientInfo"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -238,6 +238,7 @@
         android:textAllCaps="false"
         android:layout_below="@+id/tab1"
         android:background="@drawable/shapes"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="cancelPatientInfo"/>
 
 </RelativeLayout>
