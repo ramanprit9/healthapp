@@ -47,7 +47,6 @@ public class HomeActivity extends AppCompatActivity {
         ab.setLogo(R.drawable.ic_launcher);
         ab.setDisplayUseLogoEnabled(true);
         ab.setDisplayShowHomeEnabled(true);
-    }
 
         /*
          * Fetch the Patient Info from SimpleDB
@@ -56,7 +55,8 @@ public class HomeActivity extends AppCompatActivity {
          *  2. It takes some time to fetch from AWS since it happens in a different thread so
          *     we want to fetch it ahead of time
          */
-        AWS_SimpleDB.fetchPatientInformation(PatientInfo.getPatientInfo().getPatient_id());
+        //AWS_SimpleDB.fetchPatientInformation(PatientInfo.getPatientInfo().getPatient_id());
+        //AWS_SimpleDB.fetchCholesterolEquation();
     }
 
     @Override
