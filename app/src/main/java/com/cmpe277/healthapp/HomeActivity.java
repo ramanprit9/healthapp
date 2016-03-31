@@ -18,6 +18,7 @@ import com.amazonaws.mobileconnectors.lambdainvoker.LambdaInvokerFactory;
 import com.amazonaws.regions.Regions;
 import com.cmpe277.healthapp.dataanalysis.HealthRiskCalculator;
 import com.cmpe277.healthapp.datastorage.AWS_Credentials;
+import com.cmpe277.healthapp.datastorage.AWS_SimpleDB;
 import com.cmpe277.healthapp.lamdaeventgenerator.MyInterface;
 import com.cmpe277.healthapp.lamdaeventgenerator.VitalStats;
 import com.cmpe277.healthapp.visualization.PastTestResults;
@@ -40,6 +41,7 @@ public class HomeActivity extends AppCompatActivity {
 
         System.out.println("*************************** In HomeActivity");
         setContentView(R.layout.activity_homepage);
+
         /*Action Bar*/
         android.support.v7.app.ActionBar ab=getSupportActionBar();
         ab.setLogo(R.drawable.ic_launcher);
@@ -47,6 +49,15 @@ public class HomeActivity extends AppCompatActivity {
         ab.setDisplayShowHomeEnabled(true);
     }
 
+        /*
+         * Fetch the Patient Info from SimpleDB
+         * The reasons we are fetching here:
+         *  1. Need to fetch only once when the user logs in otherwise we have to pay more for AWS
+         *  2. It takes some time to fetch from AWS since it happens in a different thread so
+         *     we want to fetch it ahead of time
+         */
+        AWS_SimpleDB.fetchPatientInformation(PatientInfo.getPatientInfo().getPatient_id());
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
