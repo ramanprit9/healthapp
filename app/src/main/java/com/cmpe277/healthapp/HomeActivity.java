@@ -4,10 +4,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.amazonaws.auth.CognitoCachingCredentialsProvider;
 import com.amazonaws.mobileconnectors.lambdainvoker.LambdaFunctionException;
@@ -24,7 +27,7 @@ import com.cmpe277.healthapp.visualization.SpeedometerActivity;
  * Created by Ramanprit Kaur on 10/4/2015.
  */
 //Screen with the all the options (New Test, Past Results, etc....)
-public class HomeActivity extends Activity {
+public class HomeActivity extends AppCompatActivity {
 
     public static final int HEART_INDEX = 0;
     public static final int STROKE_INDEX = 1;
@@ -37,31 +40,31 @@ public class HomeActivity extends Activity {
 
         System.out.println("*************************** In HomeActivity");
         setContentView(R.layout.activity_homepage);
+        /*Action Bar*/
+        android.support.v7.app.ActionBar ab=getSupportActionBar();
+        ab.setLogo(R.drawable.ic_launcher);
+        ab.setDisplayUseLogoEnabled(true);
+        ab.setDisplayShowHomeEnabled(true);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+        MenuInflater menuInflater =getMenuInflater();
+        menuInflater.inflate(R.menu.home_activity_menu,menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch(item.getItemId()) {
+            case R.id.logout_id:
+                Toast.makeText(getApplicationContext(), "logging off", Toast.LENGTH_SHORT).show();
+                finish();
         }
 
         return super.onOptionsItemSelected(item);
     }
-
     /* Open the Patient Vitals screen */
     public void showPatientVitals (View view)
     {

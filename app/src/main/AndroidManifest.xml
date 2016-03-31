@@ -20,7 +20,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                </intent-filter>
         </activity>
         <activity android:name=".HomeActivity"/>
         <activity android:name=".TestoptionsActivity" />
@@ -32,6 +32,8 @@
         <activity android:name=".FinalResultActivity"/>
         <activity android:name=".visualization.SpeedometerActivity"/>
         <activity android:name=".visualization.PastTestResults"/>
+        <activity android:name=".CalibrateActivity"/>
+        <activity android:name=".VeenaGraphActivity"/>
     </application>
 
 </manifest>

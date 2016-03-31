@@ -8,6 +8,7 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -291,7 +292,14 @@ public class CalibCameraActivity extends AppCompatActivity {
     /* Done taking all the sample images. Send over the results to generate the equation */
     public void generateEquation(View view)
     {
-        printResults();
+        //printResults();
+        Intent intent = new Intent(this, CalibrateActivity.class);
+        //intent.putExtra("Sample_list_extra",sample_result_list);
+        //intent.putParcelableArrayListExtra("Sample_list_extra", (ArrayList<? extends Parcelable>) sample_result_list);
+        startActivity(intent);
+
+        //Pass sample_result_list to the your acitvity (Equation Generation)
+        //Create new intent and pass the list there
 
     }
 }

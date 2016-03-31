@@ -87,6 +87,6 @@
                 android:text="Finish"
                 android:layout_gravity="center"
                 android:onClick="generateEquation"/>
-        </LinearLayout>
+</LinearLayout>
 
 </RelativeLayout>

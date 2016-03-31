@@ -1,0 +1,64 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".HomeActivity"
+    android:background="@drawable/skyblue">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1"
+        android:id="@+id/linearLayout">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="  R Value    G Value    B Value    mg/dL"
+            android:textColor="@color/material_blue_grey_800"
+            android:textSize="18dp"
+            android:id="@+id/textView17"
+            android:focusable="false"
+            android:layout_above="@+id/linearLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_weight="0.13" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="132dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:id="@+id/mytable"
+            android:fadeScrollbars="false"
+            android:background="@drawable/skyblue"
+            android:nestedScrollingEnabled="false"
+            android:headerDividersEnabled="false"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_weight="0.71" />
+
+
+
+    </LinearLayout>
+    <Button
+        android:layout_width="156dp"
+        android:layout_height="wrap_content"
+        android:text="Equation"
+        android:id="@+id/button4"
+        android:layout_weight="0.21"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/graphbutton" />
+
+    <Button
+        android:layout_width="165dp"
+        android:layout_height="71dp"
+        android:text="Graph"
+        android:id="@+id/graphbutton"
+        android:onClick="drawGraphTest"
+        android:layout_gravity="right"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"/>
+</RelativeLayout>

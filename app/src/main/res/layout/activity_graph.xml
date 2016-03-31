@@ -1,0 +1,18 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <com.jjoe64.graphview.GraphView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:id="@+id/graph"
+        android:layout_weight="0.88"
+        android:focusable="false"
+        android:layout_gravity="bottom"
+        app:seriesColor="#00cc00"/>
+
+</LinearLayout>
+

@@ -39,8 +39,8 @@ public class TableFragment extends Fragment implements AdapterView.OnItemSelecte
         //Spinner (drop-down menu) to show the test result options
         Spinner resultSpinner = (Spinner) v.findViewById(R.id.spinnerResults);
         String[] testReultsArray = {
-            "Cholesterol",
-            "Blood"
+                "Cholesterol",
+                "Blood"
         };
 
         //Set adapter for the test result spinner
@@ -91,11 +91,11 @@ public class TableFragment extends Fragment implements AdapterView.OnItemSelecte
             if (view == null)
                 view = getActivity().getLayoutInflater().inflate(R.layout.data_list, parent, false);
             TestResult currentResult = currentDataList.get(position);
-            TextView date = (TextView) view.findViewById(R.id.txtTestDate);
+            TextView date = (TextView) view.findViewById(R.id.txtRValue);
             date.setText((currentResult.get_date()).getYear() + "-" +
                     currentResult.get_date().getMonth() + "-" +
                     currentResult.get_date().getDate());
-            TextView result = (TextView) view.findViewById(R.id.txtTestResult);
+            TextView result = (TextView) view.findViewById(R.id.txtBValue);
             result.setText(currentResult.get_result().toString());
             return view;
         }
