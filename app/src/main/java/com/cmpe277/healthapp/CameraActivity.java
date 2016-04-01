@@ -24,6 +24,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Random;
 
+import com.cmpe277.healthapp.calibration.CholesterolEquation;
 import com.cmpe277.healthapp.datastorage.AWS_S3;
 import com.cmpe277.healthapp.datastorage.AWS_SimpleDB;
 
@@ -37,7 +38,7 @@ public class CameraActivity extends AppCompatActivity {
     private Bitmap imageBitmap;
     private ImageView mImageView;
     DragRectView rectView;
-    //private File bitMapImage_file;
+    private File bitMapImage_file;
 
     private int selectedAreaX1, selectedAreaY1, selectedAreaX2, selectedAreaY2;
 
@@ -114,8 +115,8 @@ public class CameraActivity extends AppCompatActivity {
         rectView.setVisibility(View.VISIBLE);
 
         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-        File file = new File(Environment.getExternalStorageDirectory()+File.separator + "image.jpg");
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
+        bitMapImage_file = new File(Environment.getExternalStorageDirectory()+File.separator + "image.jpg");
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(bitMapImage_file));
         startActivityForResult(intent, CAPTURE_IMAGE_FULLSIZE_ACTIVITY_REQUEST_CODE);
     }
 
@@ -265,11 +266,23 @@ public class CameraActivity extends AppCompatActivity {
     {
         //x-axis - concentration/cholesterol
         //y-axis - either R/G/B or a combination of RGB
-        double y = B; //or B/(R+G+B);
 
+        //y = mx + C
+        //x = (y - C)/m
         //y = 0.1529x + 0.4243
         //x = (y - 0.4243)/0.1529   [where x is the cholesterol]
+
+        /* Comment out below 2 lines when fetching the equation from SimpleDB */
+        double y = B;
         double cholesterol = (y - 0.4243)/0.1529 - 170;
+
+        /* Use this part for AWS SimpleDB. Commenting out to avoid paying for AWS
+        double y = CholesterolEquation.getY(R, G, B);
+        double cholesterol = ((y - CholesterolEquation.getC()) / CholesterolEquation.getM()) - 170;
+        System.out.printf("******************* rgb = %d  C = %f   M = %f\n", CholesterolEquation.getRGB_Combo(),
+                CholesterolEquation.getC(), CholesterolEquation.getM());
+        */
+
         Log.d("###############", "int cholesterol = " + cholesterol);
 
         //Add the patient cholesterol value in the AWS SimpleDB
@@ -290,54 +303,55 @@ public class CameraActivity extends AppCompatActivity {
      */
     public void storeImageInCloud(View view)
     {
-        String filename = "blah";
-        //create a file to write bitmap data
-        File file = new File(getApplicationContext().getCacheDir(), filename);
-        try {
-            file.createNewFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        String filename = "blah";
+//        //create a file to write bitmap data
+//        File file = new File(getApplicationContext().getCacheDir(), filename);
+//        try {
+//            file.createNewFile();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        View rootView = (View) findViewById(R.id.rootLayout);
+//        Bitmap image = Bitmap.createBitmap(rootView.getWidth(), rootView.getHeight(), Bitmap.Config.ARGB_8888);
+//        Canvas canvas = new Canvas(image);
+//        rootView.draw(canvas);
+//
+//
+//        //Convert bitmap to byte array
+//        Bitmap bitmap = image;
+//        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+//        bitmap.compress(Bitmap.CompressFormat.PNG, 0 /*ignored for PNG*/, bos);
+//        byte[] bitmapdata = bos.toByteArray();
+//
+//        //write the bytes in file
+//        FileOutputStream fos = null;
+//        try {
+//            fos = new FileOutputStream(file);
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//
+//        try {
+//            fos.write(bitmapdata);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        try {
+//            fos.flush();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        try {
+//            fos.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
-        View rootView = (View) findViewById(R.id.rootLayout);
-        Bitmap image = Bitmap.createBitmap(rootView.getWidth(), rootView.getHeight(), Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(image);
-        rootView.draw(canvas);
-
-
-        //Convert bitmap to byte array
-        Bitmap bitmap = image;
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 0 /*ignored for PNG*/, bos);
-        byte[] bitmapdata = bos.toByteArray();
-
-        //write the bytes in file
-        FileOutputStream fos = null;
-        try {
-            fos = new FileOutputStream(file);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            fos.write(bitmapdata);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            fos.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            fos.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        //AWS_S3.uploadImageToAmazonS3(getPatientID(), file);
+        System.out.println("************************* storing image file - " + bitMapImage_file.toString());
+        AWS_S3.uploadImageToAmazonS3(getPatientID(), bitMapImage_file);
     }
 
 }
