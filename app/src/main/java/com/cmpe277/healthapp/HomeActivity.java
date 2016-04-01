@@ -125,11 +125,12 @@ public class HomeActivity extends AppCompatActivity {
 
         Log.e("##########", "HomeActivity - about to call health cal");
 
-        calculateHealthRisksFromLambda(myInterface);
+        //TODO: Un-comment the Lambda call
+        //calculateHealthRisksFromLambda(myInterface);
 
-         //Testing commit
-         //directly call showHealthRisks (like below) to avoid invoking Lambda
-        //showHealthRisks (80, 50, 70);
+        //TODO: Comment the below call when invoking from Lambda
+         //directly call showHealthRisks (like below) to avoid invoking Lambda (avoiding AWS Costs)
+        showHealthRisks (80, 50, 70);
     }
 
 
@@ -146,10 +147,13 @@ public class HomeActivity extends AppCompatActivity {
                 // invoke "echo" method. In case it fails, it will throw a
                 // LambdaFunctionException.
                 Double results[] = new Double[TOTAL_DISEASES];
+//                results[HEART_INDEX] = 0.0;
+//                results[STROKE_INDEX] = 0.0;
+//                results[VASC_INDEX] = 0.0;
                 try {
                     results[HEART_INDEX] = myInterface.calculate_heart_attack_risk(params[0]);
-                    //results[STROKE_INDEX] = myInterface.calculate_stroke_risk(params[0]);
-                    //results[VASC_INDEX] = myInterface.calculate_vascular_disease_risk(params[0]);
+                    results[STROKE_INDEX] = myInterface.calculate_stroke_risk(params[0]);
+                    results[VASC_INDEX] = myInterface.calculate_vascular_disease_risk(params[0]);
 
                     results[STROKE_INDEX] = results[HEART_INDEX] * .80;
                     results[VASC_INDEX] = results[HEART_INDEX] * .90;

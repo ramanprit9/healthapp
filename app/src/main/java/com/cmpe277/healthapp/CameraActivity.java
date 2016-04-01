@@ -272,10 +272,11 @@ public class CameraActivity extends AppCompatActivity {
         //y = 0.1529x + 0.4243
         //x = (y - 0.4243)/0.1529   [where x is the cholesterol]
 
-        /* Comment out below 2 lines when fetching the equation from SimpleDB */
+        /* TODO: Comment out below 2 lines when fetching the equation from SimpleDB */
         double y = B;
         double cholesterol = (y - 0.4243)/0.1529 - 170;
 
+        //TODO: Un-comment the below SimpleDB part to get equation from AWS SimpleDB
         /* Use this part for AWS SimpleDB. Commenting out to avoid paying for AWS
         double y = CholesterolEquation.getY(R, G, B);
         double cholesterol = ((y - CholesterolEquation.getC()) / CholesterolEquation.getM()) - 170;
@@ -289,7 +290,7 @@ public class CameraActivity extends AppCompatActivity {
         String patient_id = getPatientID();
         if (patient_id == null) { Log.d("###############", "patient_id is null ");}
 
-        //Commenting out below part so we don't have to pay for the AWS
+        //TODO: Commenting out below part to avoid paying for AWS. Uncomment to store in AWS.
         //AWS_SimpleDB.addPatientInformation(patient_id, (int)Math.round(cholesterol));
 
         Intent intent = new Intent(this, FinalResultActivity.class);

@@ -7,7 +7,7 @@ import com.amazonaws.mobileconnectors.lambdainvoker.LambdaFunction;
  */
 public interface MyInterface {
     /**
-     * Invoke the Lambda function "lambda_hanlder".
+     * Invoke the Lambda function "lamda_handler".
      * The function name is the method name
      */
     @LambdaFunction
@@ -17,7 +17,7 @@ public interface MyInterface {
      * Invoke the Lambda function "calculate_heart_attack_risk".
      * The function name is the method name
      */
-    //@LambdaFunction
+    @LambdaFunction
     Double calculate_heart_attack_risk(VitalStats vitalStats);
 
     /**
