@@ -193,4 +193,9 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void startCommScreen(View view)
+    {
+        Intent intent = new Intent(this, CommunicationActivity.class);
+        startActivity(intent);
+    }
 }

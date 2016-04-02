@@ -72,20 +72,22 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/instructions"
+        android:id="@+id/communication"
         android:src="@drawable/instr"
         android:layout_marginBottom="50dp"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/taketest"
-        android:layout_alignStart="@+id/taketest" />
+        android:layout_alignStart="@+id/taketest"
+        android:clickable="true"
+        android:onClick="startCommScreen" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/calibrate"
         android:src="@drawable/calliberation"
-        android:layout_alignBottom="@+id/instructions"
-        android:layout_alignTop="@+id/instructions"
+        android:layout_alignBottom="@+id/communication"
+        android:layout_alignTop="@+id/communication"
         android:layout_alignLeft="@+id/caliberDevice"
         android:layout_alignStart="@+id/caliberDevice"
         android:layout_alignRight="@+id/caliberDevice"
@@ -94,15 +96,15 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/instructions2"
-        android:layout_alignLeft="@+id/instructions"
-        android:layout_alignStart="@+id/instructions" />
+        android:id="@+id/communication2"
+        android:layout_alignLeft="@+id/communication"
+        android:layout_alignStart="@+id/communication" />
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/instructions3"
-        android:layout_alignLeft="@+id/instructions2"
-        android:layout_alignStart="@+id/instructions2" />
+        android:id="@+id/communication3"
+        android:layout_alignLeft="@+id/communication2"
+        android:layout_alignStart="@+id/communication2" />
 
 
 
@@ -154,11 +156,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Instructions"
+        android:text="Communication"
         android:id="@+id/textView5"
         android:layout_below="@+id/calibrate"
-        android:layout_alignRight="@+id/instructions"
-        android:layout_alignEnd="@+id/instructions" />
+        android:layout_alignRight="@+id/communication"
+        android:layout_alignEnd="@+id/communication" />
 
     <TextView
         android:layout_width="wrap_content"

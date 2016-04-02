@@ -34,6 +34,7 @@
         <activity android:name=".visualization.PastTestResults"/>
         <activity android:name=".CalibrateActivity"/>
         <activity android:name=".VeenaGraphActivity"/>
+        <activity android:name=".CommunicationActivity" />
     </application>
 
 </manifest>

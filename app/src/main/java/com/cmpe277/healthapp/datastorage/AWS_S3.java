@@ -21,7 +21,6 @@ public class AWS_S3 {
     public static String s3Bucket = "healthapp.cholesterol.images";
     public static final String TAG = "#################";
 
-
     public static void setup()
     {
         System.out.println("**************** Setting up AWS S3");
@@ -33,13 +32,13 @@ public class AWS_S3 {
         */
 
         amazonS3_client = new AmazonS3Client(credentials);
-        amazonS3_client.createBucket("healthapp.cholesterol.images");
+
+        //amazonS3_client.createBucket("healthapp.cholesterol.images");
     }
 
     public static void uploadImageToAmazonS3(String key, File file) {
         final PutObjectRequest request = new PutObjectRequest(s3Bucket, key, file);
-        final PutObjectResult result = amazonS3_client.putObject(request);
-
+       // final PutObjectResult result = amazonS3_client.putObject(request);
 
         new Thread(new Runnable() {
             @Override
