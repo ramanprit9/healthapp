@@ -3,7 +3,6 @@ package com.cmpe277.healthapp;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -16,6 +15,8 @@ import java.util.ArrayList;
  * Created by owner on 3/16/2016.
  */
 public class CalibrateActivity extends Activity {
+    public static double beta1;
+    public  static double beta0;
     ListView rgb_table_view;
     ArrayList<RGB_Result> resultList;
     //Intent intent =new Intent();
@@ -36,9 +37,9 @@ public class CalibrateActivity extends Activity {
         resultList = new ArrayList<>();
         resultList.add(new RGB_Result(200, 200, 200, 300));
         resultList.add(new RGB_Result(150, 200, 110, 250));
-        resultList.add(new RGB_Result(210, 206, 200, 275));
-        resultList.add(new RGB_Result(220, 208, 110, 250));
-        resultList.add(new RGB_Result(215, 209, 200, 280));
+        //resultList.add(new RGB_Result(210, 206, 200, 275));
+        //resultList.add(new RGB_Result(220, 208, 110, 250));
+        //resultList.add(new RGB_Result(215, 209, 200, 280));
 
 
         /* populate the ArrayAdapter for the Data List */
@@ -51,30 +52,21 @@ public class CalibrateActivity extends Activity {
 
         populateList();
 
-        /******************graph************************************************
+        /******************graph************************************************/
         int i = 0;
         int totalResults = resultList.size();
-        /*GraphView graph = (GraphView) findViewById(R.id.graph);
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
-
-                new DataPoint(resultList.get(0).R, resultList.get(0).result),
-                new DataPoint(resultList.get(1).R, resultList.get(1).result),
-                new DataPoint(resultList.get(2).R, resultList.get(2).result),
-                new DataPoint(resultList.get(3).R, resultList.get(3).result),
-                new DataPoint(resultList.get(4).R, resultList.get(4).result)
-        });
-
-        graph.addSeries(series);
         for (i = 0; i < totalResults; i++) {
             System.out.printf("R = %d   B = %d  G = %d  result = %f\n",
                     resultList.get(i).R, resultList.get(i).G, resultList.get(i).B,
                     resultList.get(i).result);
 
 
-        }*/
-        /*********************************************************************/
+        }
+
+
 
     }
+
 
     private void populateList() {
         /* populate the ArrayAdapter for the Data List */
@@ -108,7 +100,12 @@ public class CalibrateActivity extends Activity {
     }
 
     public void drawGraphTest(View view) {
-        Intent intent = new Intent(this, VeenaGraphActivity.class);
+        Intent intent = new Intent(this, EquationGraphActivity.class);
+        startActivity(intent);
+
+    }
+    public void drawBestFit(View view) {
+        Intent intent = new Intent(this, BestFit.class);
         startActivity(intent);
 
     }

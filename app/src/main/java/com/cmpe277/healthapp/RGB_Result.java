@@ -21,8 +21,20 @@ public class RGB_Result {
         result = res;
     }
 
+    public int getColor(char c) {
+        if ('R' == c)
+            return R;
+        else if ('G' == c)
+            return G;
+        else if ('B' == c)
+            return B;
+        else
+            return R;
+
+    }
+
     //This main method is just for demonstrating and testing RGB_Result
-    public void main (String[] args) {
+    public void main(String[] args) {
 
         /* This shows how RGB_Result class will be used */
         ArrayList<RGB_Result> resultList = new ArrayList<>();
