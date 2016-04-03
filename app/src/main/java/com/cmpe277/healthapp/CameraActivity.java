@@ -277,12 +277,11 @@ public class CameraActivity extends AppCompatActivity {
         double cholesterol = (y - 0.4243)/0.1529 - 170;
 
         //TODO: Un-comment the below SimpleDB part to get equation from AWS SimpleDB
-        /* Use this part for AWS SimpleDB. Commenting out to avoid paying for AWS
-        double y = CholesterolEquation.getY(R, G, B);
-        double cholesterol = ((y - CholesterolEquation.getC()) / CholesterolEquation.getM()) - 170;
+         //Use this part for AWS SimpleDB. Commenting out to avoid paying for AWS
+//        double y = CholesterolEquation.getY(R, G, B);
+//        double cholesterol = ((y - CholesterolEquation.getC()) / CholesterolEquation.getM()) - 170;
         System.out.printf("******************* rgb = %d  C = %f   M = %f\n", CholesterolEquation.getRGB_Combo(),
                 CholesterolEquation.getC(), CholesterolEquation.getM());
-        */
 
         Log.d("###############", "int cholesterol = " + cholesterol);
 
@@ -292,6 +291,10 @@ public class CameraActivity extends AppCompatActivity {
 
         //TODO: Commenting out below part to avoid paying for AWS. Uncomment to store in AWS.
         //AWS_SimpleDB.addPatientInformation(patient_id, (int)Math.round(cholesterol));
+
+
+//        AWS_SimpleDB.addCholesterolEquation("2", ".57", ".50");
+//        AWS_SimpleDB.fetchCholesterolEquation();
 
         Intent intent = new Intent(this, FinalResultActivity.class);
         intent.putExtra("cholesterol", (int)Math.round(cholesterol));

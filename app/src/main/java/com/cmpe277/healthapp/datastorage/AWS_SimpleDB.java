@@ -9,10 +9,8 @@ import com.amazonaws.services.simpledb.model.PutAttributesRequest;
 import com.amazonaws.services.simpledb.model.ReplaceableAttribute;
 import com.amazonaws.services.simpledb.model.SelectRequest;
 import com.amazonaws.services.simpledb.model.SelectResult;
-import com.cmpe277.healthapp.PatientInfo;
+import com.cmpe277.healthapp.user.PatientInfo;
 import com.cmpe277.healthapp.calibration.CholesterolEquation;
-import com.cmpe277.healthapp.calibration.LinearEquation;
-import com.echo.holographlibrary.Line;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -126,7 +124,7 @@ public class AWS_SimpleDB {
                 PatientInfo patientInfo = PatientInfo.getPatientInfo();
 
                 do {
-                    query = "select * from " + CHOLESTEROL_EQUATION_DOMAIN;
+                    query = "select * from " + PATIENT_INFO_DOMAIN;
                     SelectRequest selectRequest = new SelectRequest(query);
                     selectRequest.setNextToken(nextToken);
                     selectResult = sdbClient.select(selectRequest);
@@ -200,7 +198,7 @@ public class AWS_SimpleDB {
                     List<Item> list = selectResult.getItems();
                     String attrName, attrValue;
                     System.out.println("************** query = " + query);
-                    System.out.println("**************** retrieving patient values");
+                    System.out.println("**************** retrieving cholesterol equation values");
                     if (list == null) System.out.println("************** list is null");
                     for(Item item: list){
                         item.getName(); // itemName
@@ -226,4 +224,32 @@ public class AWS_SimpleDB {
             }
         }).start();
     } //end fetchCholesterolEquation
+
+
+    public static void addCholesterolEquation(final String color, final String mValue,
+                                             final String cValue) {
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("**************** Adding attributes for cholesterol eq");
+                ReplaceableAttribute patientIDAttr = new ReplaceableAttribute(RGB_COMBO, color, Boolean.TRUE);
+                ReplaceableAttribute nameAttr = new ReplaceableAttribute(LIN_EQ_C, cValue, Boolean.TRUE);
+                ReplaceableAttribute ageAttr = new ReplaceableAttribute(LIN_EQ_M, mValue, Boolean.TRUE);
+
+                List attrs = new ArrayList(2);
+                attrs.add(patientIDAttr);
+                attrs.add(nameAttr);
+                attrs.add(ageAttr);
+                PutAttributesRequest par = new PutAttributesRequest(CHOLESTEROL_EQUATION_DOMAIN, CHOLESTEROL_EQUATION_DOMAIN, attrs);
+
+               /* Note: - Correct ACCESS_KEY_ID and SECRET_KEY are not provided
+                * An Exception will be thrown when trying to connect to AWS
+                */
+                sdbClient.putAttributes(par);
+            }
+        }).start();
+
+    } //end addCholesterolEquation
+
 }
