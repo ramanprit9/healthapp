@@ -21,6 +21,7 @@ import com.cmpe277.healthapp.datastorage.AWS_Credentials;
 import com.cmpe277.healthapp.datastorage.AWS_SimpleDB;
 import com.cmpe277.healthapp.lamdaeventgenerator.MyInterface;
 import com.cmpe277.healthapp.lamdaeventgenerator.VitalStats;
+import com.cmpe277.healthapp.user.PatientInfo;
 import com.cmpe277.healthapp.visualization.PastTestResults;
 import com.cmpe277.healthapp.visualization.SpeedometerActivity;
 
@@ -55,6 +56,7 @@ public class HomeActivity extends AppCompatActivity {
          *  2. It takes some time to fetch from AWS since it happens in a different thread so
          *     we want to fetch it ahead of time
          */
+        //TODO - uncomment the AWS calls below
         //AWS_SimpleDB.fetchPatientInformation(PatientInfo.getPatientInfo().getPatient_id());
         //AWS_SimpleDB.fetchCholesterolEquation();
     }

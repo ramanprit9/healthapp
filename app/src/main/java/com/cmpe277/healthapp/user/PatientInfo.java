@@ -1,4 +1,4 @@
-package com.cmpe277.healthapp;
+package com.cmpe277.healthapp.user;
 
 /**
  * Created by Ramanprit Kaur on 10/13/2015.

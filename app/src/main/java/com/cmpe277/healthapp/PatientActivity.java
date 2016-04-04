@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
+import com.cmpe277.healthapp.user.PatientInfo;
 import com.cmpe277.healthapp.datastorage.AWS_SimpleDB;
 
 /**
@@ -43,6 +44,20 @@ public class PatientActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onResume()
+    {
+        super.onResume();
+
+        /* populate the fields on the PatientInfo activity with the latest values
+         * The Patient Info data has already been fetched from SimpleDB in HomeActivity onCreate
+         * and also when the Patient Info is saved.
+        */
+        populatePatientInfo();
+
+        System.out.println("****************** PatientActivity onResume");
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -73,6 +88,7 @@ public class PatientActivity extends AppCompatActivity {
 
         //Populate the Patient Info field with latest changes
         AWS_SimpleDB.fetchPatientInformation(PatientInfo.getPatientInfo().getPatient_id());
+        System.out.println("***************** Save patient info");
     }
 
     public void populatePatientInfo()
