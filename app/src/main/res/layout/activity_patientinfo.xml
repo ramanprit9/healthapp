@@ -232,7 +232,8 @@
         android:text="@string/btn_save_label"
         android:layout_below="@+id/tab1"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="updatePatientInfo"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -244,6 +245,7 @@
         android:textAllCaps="false"
         android:layout_below="@+id/tab1"
         android:background="@drawable/shapes"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="cancelPatientInfo"/>
 
 </RelativeLayout>

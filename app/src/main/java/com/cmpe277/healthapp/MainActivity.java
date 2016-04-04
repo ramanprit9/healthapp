@@ -23,15 +23,16 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //TODO - uncomment both of the AWS calls below
         /*
          * Commenting out below part for setting up AWS.
          * Correct AWS ID and Secret Key are not being used. An exception will be thrown
          */
         //set up AWS SimpleDB
-        AWS_SimpleDB.setupClient();
+        //AWS_SimpleDB.setupClient();
 
         //set up AWS S3
-        AWS_S3.setup();
+        //AWS_S3.setup();
     }
 
 
@@ -67,7 +68,6 @@ public class MainActivity extends Activity {
 
         //if (patient_id == null) {System.out.println("*****############### patient_id is null");}
         //PatientInfo.getPatientInfo().setPatient_id(patient_id);
-/*
         if (!patientIDStr.equals(PatientInfo.getPatientInfo().getPatient_id()) ||
                 !passwordStr.equals(PatientInfo.getPatientInfo().getPassword())) {
             Toast toast = Toast.makeText(getApplicationContext(),
@@ -75,7 +75,6 @@ public class MainActivity extends Activity {
             toast.show();
             return;
         }
-*/
 
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);

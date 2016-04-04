@@ -1,11 +1,13 @@
 package com.cmpe277.healthapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.cmpe277.healthapp.user.PatientInfo;
 import com.cmpe277.healthapp.datastorage.AWS_SimpleDB;
@@ -40,7 +42,7 @@ public class PatientActivity extends AppCompatActivity {
          * populate the fields on the PatientInfo activity
          * The Patient Info data has already been fetched from SimpleDB in HomeActivity onCreate
          */
-        populatePatientInfo();
+        //populatePatientInfo();
     }
 
     @Override
@@ -52,7 +54,7 @@ public class PatientActivity extends AppCompatActivity {
          * The Patient Info data has already been fetched from SimpleDB in HomeActivity onCreate
          * and also when the Patient Info is saved.
         */
-        populatePatientInfo();
+        //populatePatientInfo();
 
         System.out.println("****************** PatientActivity onResume");
     }
@@ -81,14 +83,19 @@ public class PatientActivity extends AppCompatActivity {
 
     public void updatePatientInfo(View view)
     {
-        AWS_SimpleDB.addPatientInformation(editName.getText().toString(), editID.getText().toString(),
+        //TODO - uncomment AWS call
+       /* AWS_SimpleDB.addPatientInformation(editName.getText().toString(), editID.getText().toString(),
                 editAge.getText().toString(), editGender.getText().toString(),
                 editWeight.getText().toString(), editSmoker.getText().toString(),
                 editHeartDisease.getText().toString());
-
+*/
+        //TODO - uncomment AWS call below
         //Populate the Patient Info field with latest changes
-        AWS_SimpleDB.fetchPatientInformation(PatientInfo.getPatientInfo().getPatient_id());
+        //AWS_SimpleDB.fetchPatientInformation(PatientInfo.getPatientInfo().getPatient_id());
         System.out.println("***************** Save patient info");
+        Toast.makeText(getApplicationContext(), "Saved patient info", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
     }
 
     public void populatePatientInfo()
@@ -103,10 +110,11 @@ public class PatientActivity extends AppCompatActivity {
         editHeartDisease.setText(patient.getHeart_disease());
     }
 
-    /*
+
     public void cancelPatientInfo(View view)
     {
-        AWS_SimpleDB.fetchPatientInformation(PatientInfo.getPatientInfo().getPatient_id());
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
     }
-    */
+
 }
