@@ -72,6 +72,11 @@ public class HomeActivity extends AppCompatActivity {
             case R.id.logout_id:
                 Toast.makeText(getApplicationContext(), "logging off", Toast.LENGTH_SHORT).show();
                 finish();
+            case R.id.instructions:
+                Toast.makeText(getApplicationContext(), "instructions", Toast.LENGTH_SHORT).show();
+                finish();
+                //Intent intent = new Intent(this, PatientActivity.class);
+                //startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
@@ -94,6 +99,7 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = new Intent(this, PatientActivity.class);
         startActivity(intent);
     }
+
 
     /* Open up the screen for calibration
      * This is where the user will start taking sample pictures.

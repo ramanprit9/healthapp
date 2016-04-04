@@ -35,11 +35,10 @@ public class CalibrateActivity extends Activity {
        // sample_list = getIntent().getExtras().getParcelableArrayList("Sample_list_extra");
         //sample_list= (ArrayList<RGB_Result>)getIntent().getSerializableExtra("Sample_list_extra");
         resultList = new ArrayList<>();
-        resultList.add(new RGB_Result(200, 200, 200, 300));
-        resultList.add(new RGB_Result(150, 200, 110, 250));
-        //resultList.add(new RGB_Result(210, 206, 200, 275));
-        //resultList.add(new RGB_Result(220, 208, 110, 250));
-        //resultList.add(new RGB_Result(215, 209, 200, 280));
+        resultList.add(new RGB_Result(100, 205, 180, 250));
+        resultList.add(new RGB_Result(150, 270, 225, 275));
+        resultList.add(new RGB_Result(150, 330, 206, 295));
+        resultList.add(new RGB_Result(240, 250, 250, 245));
 
 
         /* populate the ArrayAdapter for the Data List */

@@ -3,16 +3,22 @@ package com.cmpe277.healthapp;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.jjoe64.graphview.DefaultLabelFormatter;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.LegendRenderer;
 import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.DataPointInterface;
 import com.jjoe64.graphview.series.LineGraphSeries;
+import com.jjoe64.graphview.series.OnDataPointTapListener;
 import com.jjoe64.graphview.series.PointsGraphSeries;
+import com.jjoe64.graphview.series.Series;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+import static android.app.PendingIntent.getActivity;
 import static com.cmpe277.healthapp.BestFit.linear_regression;
 
 
@@ -29,10 +35,10 @@ public class EquationGraphActivity extends Activity {
 
         /*This shows how RGB_Result class will be used*/
         ArrayList<RGB_Result> resultList = new ArrayList<>();
-        resultList.add(new RGB_Result(180, 200, 110, 250));
-        resultList.add(new RGB_Result(225, 170, 265, 275));
-        resultList.add(new RGB_Result(206, 200, 280, 295));
-        resultList.add(new RGB_Result(250, 100, 270, 245));
+        resultList.add(new RGB_Result(100, 205, 180, 250));
+        resultList.add(new RGB_Result(150, 270, 225, 275));
+        resultList.add(new RGB_Result(150, 330, 206, 295));
+        resultList.add(new RGB_Result(240, 250, 250, 245));
 
 
         int i = 0;
@@ -53,24 +59,24 @@ public class EquationGraphActivity extends Activity {
             switch (j)
             {
                 case 1:
-                    for (i = 0; i < totalResults; i++) {
+                    /*for (i = 0; i < totalResults; i++) {
                         new DataPoint(resultList.get(i).R, resultList.get(i).result);
 
-                    }
+                    }*/
                     linear_regression(resultList,'R',calib);
                     break;
                 case 2:
-                    for (i = 0; i < totalResults; i++) {
+                    /*for (i = 0; i < totalResults; i++) {
                         new DataPoint(resultList.get(i).G, resultList.get(i).result);
 
-                    }
+                    }*/
                     linear_regression(resultList,'G',calib);
                     break;
                 case 3:
-                    for (i = 0; i < totalResults; i++) {
+                    /*for (i = 0; i < totalResults; i++) {
                         new DataPoint(resultList.get(i).B, resultList.get(i).result);
 
-                    }
+                    }*/
                     linear_regression(resultList,'B',calib);
                     break;
 
@@ -92,17 +98,27 @@ public class EquationGraphActivity extends Activity {
         /******series2*******************************/
         LineGraphSeries<DataPoint> series2 = new LineGraphSeries<DataPoint>(new DataPoint[]  {
 
-                new DataPoint(resultList.get(0).getColor(calib.color),
-                        calib.m*resultList.get(0).getColor(calib.color) + calib.c),
-                new DataPoint(resultList.get(1).getColor(calib.color),
-                        calib.m*resultList.get(totalResults-1).getColor(calib.color) + calib.c),
+                new DataPoint(100,  calib.m*100 + calib.c),
+                new DataPoint(500,  calib.m*500 + calib.c),
         });
         graph.addSeries(series2);
+        graph.setBackgroundColor(Color.rgb(191,209,219));
         graph.setTitle("Line of Best Fit");
+        graph.setTitleColor(Color.BLUE);
         series.setColor(Color.RED);
         series.setTitle("Cholestrol concentration");
-        //series2.setTitle("Line of best fit -"+"calib.color");
+        DecimalFormat df = new DecimalFormat("#.#");
+        series2.setTitle("Line of best fit ("+calib.color+")-y ="+df.format(calib.m)+"x+"+df.format(calib.c));
+        series.setOnDataPointTapListener(new OnDataPointTapListener() {
+            @Override
+            public void onTap(Series series, DataPointInterface dataPoint) {
+                Toast.makeText(getApplicationContext(), "Series1: On Data Point clicked: " + dataPoint, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        graph.getViewport().setScalable(true);
         graph.getLegendRenderer().setVisible(true);
+        graph.getLegendRenderer().setBackgroundColor(Color.YELLOW);
         graph.getLegendRenderer().setAlign(LegendRenderer.LegendAlign.TOP);
         graph.getGridLabelRenderer().setVerticalLabelsSecondScaleColor(Color.RED);
         graph.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter() {
@@ -112,7 +128,7 @@ public class EquationGraphActivity extends Activity {
                     // show normal x values
                     return super.formatLabel(value, isValueX);
                 } else {
-                    // show currency for y values
+                    // show cholesterol for y values
                     return super.formatLabel(value, isValueX) + " mg/dL";
                 }
             }

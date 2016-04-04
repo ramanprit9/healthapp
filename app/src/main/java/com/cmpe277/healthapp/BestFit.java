@@ -44,7 +44,7 @@ public class BestFit extends Activity{
         System.out.println("length"+args.size());
         System.out.println("print before while");
         // while(!StdIn.isEmpty()) {
-        if ('R' == color) {
+
             //int n = 0;
             while (n < args.size()) {
 
@@ -54,7 +54,7 @@ public class BestFit extends Activity{
                 sumy += args.get(n).result;
                 n++;
             }
-        }
+
         System.out.println("################print after while");
         double xbar = sumx / n;
         double ybar = sumy / n;

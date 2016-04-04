@@ -1,57 +1,61 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<LinearLayout
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:layout_height="fill_parent"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:paddingRight="30dp"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="R"
-            android:id="@+id/txtRValue"
-            android:layout_gravity="left|center_vertical"
-            android:textColor="#ffffffff" />
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textColor="#ff1417"
+        android:layout_gravity="left|center_vertical"
+        android:id="@+id/txtRValue" android:text="R"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:paddingRight="30dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="G"
-            android:id="@+id/txtGValue"
-            android:layout_gravity="left|center_vertical"
-            android:textColor="#ffffffff" />
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textColor="#34ff1d"
+        android:layout_gravity="left|center_vertical"
+        android:id="@+id/txtGValue" android:text="G"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:paddingRight="30dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="B"
-            android:id="@+id/txtBValue"
-            android:layout_gravity="left|center_vertical"
-            android:textColor="#ffffffff" />
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textColor="#443eff"
+        android:layout_gravity="left|center_vertical"
+        android:id="@+id/txtBValue" android:text="B"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:paddingRight="30dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Conc"
-            android:id="@+id/txtConcValue"
-            android:layout_gravity="left|center_vertical"
-            android:textColor="#ffffffff" />
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textColor="#ffffff"
+        android:layout_gravity="left|center_vertical"
+        android:id="@+id/txtConcValue" android:text="Conc"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:paddingRight="30dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"/>
 
-    </LinearLayout>
+</LinearLayout>
+
 </LinearLayout>
