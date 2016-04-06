@@ -32,7 +32,7 @@ import java.util.Random;
  */
 public class CalibCameraActivity extends AppCompatActivity {
 
-    ArrayList<RGB_Result> sample_result_list = new ArrayList<>();
+    ArrayList<RGB_Result> sample_result_list = new ArrayList<RGB_Result>();
     int currentSampleIndex; //number of the image that is currently being captured
     static final int REQUEST_IMAGE_CAPTURE = 1;
     public static final int CAPTURE_IMAGE_FULLSIZE_ACTIVITY_REQUEST_CODE = 1777;
@@ -294,8 +294,9 @@ public class CalibCameraActivity extends AppCompatActivity {
     {
         //printResults();
         Intent intent = new Intent(this, CalibrateActivity.class);
-        //intent.putExtra("Sample_list_extra",sample_result_list);
+        intent.putExtra("Sample_list_extra",sample_result_list);
         //intent.putParcelableArrayListExtra("Sample_list_extra", (ArrayList<? extends Parcelable>) sample_result_list);
+        //startActivityForResult(intent, this.sample_result_list);
         startActivity(intent);
 
         //Pass sample_result_list to the your acitvity (Equation Generation)

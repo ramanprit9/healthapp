@@ -7,9 +7,9 @@
 
     <com.jjoe64.graphview.GraphView
         android:layout_width="wrap_content"
-        android:layout_height="100dp"
+        android:layout_height="fill_parent"
         android:id="@+id/graph"
-        android:layout_weight="1.02"
+        android:layout_weight="0.96"
         android:focusable="false"
         android:layout_gravity="bottom"
         app:seriesColor="#00cc00"/>

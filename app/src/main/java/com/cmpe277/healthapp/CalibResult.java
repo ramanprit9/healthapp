@@ -17,9 +17,12 @@ public class CalibResult {
     }
 
     public void setCalibration(char colorcode, double mval, double cval, double R2val) {
+        //R,G or B
         color = colorcode;
+        //equation y=mx+c
         m = mval;
         c = cval;
+        //Regression coefficient
         R2 = R2val;
     }
 

@@ -31,7 +31,8 @@ import java.util.ArrayList;
  ******************************************************************************/
 
 public class BestFit extends Activity{
-
+    public static double beta1;
+    public static double beta0;
     public static void linear_regression(ArrayList<RGB_Result> args, char color, CalibResult calib) {
         //int MAXN = 100;
         int n = 0;
@@ -66,8 +67,8 @@ public class BestFit extends Activity{
             yybar += (args.get(i).result) * (args.get(i).result - ybar);
             xybar += (args.get(i).getColor(color) - xbar) * (args.get(i).result - ybar);
         }
-        CalibrateActivity.beta1 = xybar / xxbar;
-        CalibrateActivity.beta0 = ybar - CalibrateActivity.beta1 * xbar;
+        beta1 = xybar / xxbar;
+        beta0 = ybar - beta1 * xbar;
 
         // print results
 
@@ -80,7 +81,7 @@ public class BestFit extends Activity{
         double rss = 0.0;      // residual sum of squares
         double ssr = 0.0;      // regression sum of squares
         for (int i = 0; i < n; i++) {
-            double fit = CalibrateActivity.beta1*args.get(i).getColor(color) + CalibrateActivity.beta0;
+            double fit = beta1*args.get(i).getColor(color) + beta0;
             rss += (fit - args.get(i).result) * (fit - args.get(i).result);
             ssr += (fit - ybar) * (fit - ybar);
         }
@@ -89,12 +90,10 @@ public class BestFit extends Activity{
         double svar1 = svar / xxbar;
         double svar0 = svar/n + xbar*xbar*svar1;
         System.out.println("*****************************************************");
-        System.out.println("*****************************************************");
         System.out.println("R^2                 = " + R2);
         System.out.println("*****************************************************");
-        System.out.println("*****************************************************");
         if (calib.R2<R2) {
-            calib.setCalibration(color, CalibrateActivity.beta1, CalibrateActivity.beta0,R2);
+            calib.setCalibration(color, beta1, beta0,R2);
 
         }
 

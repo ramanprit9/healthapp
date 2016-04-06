@@ -1,18 +1,22 @@
 package com.cmpe277.healthapp;
 
 
+import android.os.Parcelable;
+
+import java.io.Serializable;
 import java.util.Date;
 import java.util.ArrayList;
 
 /**
  * Created by Ramanprit Kaur on 1/31/2016.
  */
-public class RGB_Result {
+public class RGB_Result implements Serializable {
     public int R = 0;
     public int G = 0;
     public int B = 0;
     public double result = 0;
     //public Date date;
+
 
     public RGB_Result(int red, int green, int blue, double res) {
         R = red;
