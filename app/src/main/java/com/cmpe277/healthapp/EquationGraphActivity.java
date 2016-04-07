@@ -35,10 +35,12 @@ public class EquationGraphActivity extends Activity {
 
         /*This shows how RGB_Result class will be used*/
         ArrayList<RGB_Result> resultList = new ArrayList<>();
+        resultList  = (ArrayList<RGB_Result>)getIntent().getSerializableExtra("Sample_list_extra");
+        /*resultList.add(new RGB_Result(60, 65, 60, 250));
         resultList.add(new RGB_Result(100, 205, 180, 250));
         resultList.add(new RGB_Result(150, 270, 225, 275));
         resultList.add(new RGB_Result(150, 330, 206, 295));
-        resultList.add(new RGB_Result(240, 250, 250, 245));
+        resultList.add(new RGB_Result(240, 250, 250, 245));*/
 
 
         int i = 0;

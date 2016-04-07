@@ -135,6 +135,7 @@ public class CalibrateActivity extends AppCompatActivity {
 
     public void drawGraphTest(View view) {
         Intent intent = new Intent(this, EquationGraphActivity.class);
+        intent.putExtra("Sample_list_extra",resultList);
         startActivity(intent);
 
     }
