@@ -35,6 +35,7 @@
         <activity android:name=".CalibrateActivity"/>
         <activity android:name=".CommunicationActivity" />
         <activity android:name=".EquationGraphActivity"/>
+        <activity android:name=".Instruction"/>
     </application>
 
 </manifest>

@@ -32,11 +32,11 @@ public class CalibrateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calibrate);
-         /*Action Bar*/
+       /*  *//*Action Bar*//*
         android.support.v7.app.ActionBar ab=getSupportActionBar();
         ab.setLogo(R.drawable.happlogo);
         ab.setDisplayUseLogoEnabled(true);
-        ab.setDisplayShowHomeEnabled(true);
+        ab.setDisplayShowHomeEnabled(true);*/
         rgb_table_view = (ListView) findViewById(R.id.mytable);
 
        /*This shows how RGB_Result class will be used*/
@@ -77,7 +77,10 @@ public class CalibrateActivity extends AppCompatActivity {
 
 
     }
-
+    /*public void instruct(View v) {
+        Intent intent = new Intent(getApplicationContext(), Instruction.class);
+        startActivity(intent);
+    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -93,10 +96,10 @@ public class CalibrateActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "logging off", Toast.LENGTH_SHORT).show();
                 finish();
             case R.id.instructions:
-                Toast.makeText(getApplicationContext(), "instructions", Toast.LENGTH_SHORT).show();
-                finish();
+                //Toast.makeText(getApplicationContext(), "instructions", Toast.LENGTH_SHORT).show();
+                //finish();
                 //Intent intent = new Intent(this, PatientActivity.class);
-                //startActivity(intent);
+                startActivity(new Intent(getApplicationContext(), Instruction.class));
         }
 
         return super.onOptionsItemSelected(item);

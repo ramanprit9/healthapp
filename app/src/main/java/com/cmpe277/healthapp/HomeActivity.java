@@ -41,13 +41,14 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         System.out.println("*************************** In HomeActivity");
-        setContentView(R.layout.activity_homepage);
 
-        /*Action Bar*/
+          /*Action Bar*/
         android.support.v7.app.ActionBar ab=getSupportActionBar();
-        ab.setLogo(R.drawable.ic_launcher);
+        ab.setLogo(R.drawable.happlogo);
         ab.setDisplayUseLogoEnabled(true);
         ab.setDisplayShowHomeEnabled(true);
+        setContentView(R.layout.activity_homepage);
+
 
         /*
          * Fetch the Patient Info from SimpleDB
@@ -60,7 +61,10 @@ public class HomeActivity extends AppCompatActivity {
         //AWS_SimpleDB.fetchPatientInformation(PatientInfo.getPatientInfo().getPatient_id());
         //AWS_SimpleDB.fetchCholesterolEquation();
     }
-
+    public void instruct(View v) {
+        Intent intent = new Intent(getApplicationContext(), Instruction.class);
+        startActivity(intent);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater =getMenuInflater();
@@ -75,10 +79,9 @@ public class HomeActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "logging off", Toast.LENGTH_SHORT).show();
                 finish();
             case R.id.instructions:
-                Toast.makeText(getApplicationContext(), "instructions", Toast.LENGTH_SHORT).show();
-                finish();
-                //Intent intent = new Intent(this, PatientActivity.class);
-                //startActivity(intent);
+                //Toast.makeText(getApplicationContext(), "instructions", Toast.LENGTH_SHORT).show();
+                //finish();
+                startActivity(new Intent(getApplicationContext(), Instruction.class));
         }
 
         return super.onOptionsItemSelected(item);

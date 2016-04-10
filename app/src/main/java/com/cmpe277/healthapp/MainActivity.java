@@ -68,13 +68,13 @@ public class MainActivity extends Activity {
 
         //if (patient_id == null) {System.out.println("*****############### patient_id is null");}
         //PatientInfo.getPatientInfo().setPatient_id(patient_id);
-        if (!patientIDStr.equals(PatientInfo.getPatientInfo().getPatient_id()) ||
+        /*if (!patientIDStr.equals(PatientInfo.getPatientInfo().getPatient_id()) ||
                 !passwordStr.equals(PatientInfo.getPatientInfo().getPassword())) {
             Toast toast = Toast.makeText(getApplicationContext(),
                     "Username or password is incorrect.", Toast.LENGTH_SHORT);
             toast.show();
             return;
-        }
+        }*/
 
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
