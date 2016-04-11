@@ -28,4 +28,11 @@ public class CommunicationActivity extends Activity {
         startActivity(intent);
         finish();
     }
+    public void phoneCall(View view) {
+        String phno="10digits";
+        Intent i=new Intent(Intent.ACTION_DIAL,Uri.parse(phno));
+        i.setData(Uri.parse("tel:0123456789"));
+        startActivity(i);
+
+    }
 }
