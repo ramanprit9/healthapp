@@ -95,11 +95,13 @@ public class CalibrateActivity extends AppCompatActivity {
             case R.id.logout_id:
                 Toast.makeText(getApplicationContext(), "logging off", Toast.LENGTH_SHORT).show();
                 finish();
+                break;
             case R.id.instructions:
                 //Toast.makeText(getApplicationContext(), "instructions", Toast.LENGTH_SHORT).show();
                 //finish();
                 //Intent intent = new Intent(this, PatientActivity.class);
                 startActivity(new Intent(getApplicationContext(), Instruction.class));
+                break;
         }
 
         return super.onOptionsItemSelected(item);

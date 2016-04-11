@@ -45,7 +45,7 @@ public class HomeActivity extends AppCompatActivity {
           /*Action Bar*/
         android.support.v7.app.ActionBar ab=getSupportActionBar();
         ab.setLogo(R.drawable.happlogo);
-        ab.setDisplayUseLogoEnabled(true);
+        ab.setDisplayUseLogoEnabled(false);
         ab.setDisplayShowHomeEnabled(true);
         setContentView(R.layout.activity_homepage);
 
@@ -78,10 +78,12 @@ public class HomeActivity extends AppCompatActivity {
             case R.id.logout_id:
                 Toast.makeText(getApplicationContext(), "logging off", Toast.LENGTH_SHORT).show();
                 finish();
+                break;
             case R.id.instructions:
                 //Toast.makeText(getApplicationContext(), "instructions", Toast.LENGTH_SHORT).show();
                 //finish();
                 startActivity(new Intent(getApplicationContext(), Instruction.class));
+                break;
         }
 
         return super.onOptionsItemSelected(item);
